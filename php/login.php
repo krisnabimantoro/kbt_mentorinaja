@@ -12,7 +12,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_num_rows($result);
 
 if ($row>0) {
-    header("Location: ../searching.html");
+    header("Location: https://mentorinaja.my.id/wordpress/home-search/");
     
 }else {
     // Login failed, show alert

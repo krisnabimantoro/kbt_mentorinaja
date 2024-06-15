@@ -27,22 +27,26 @@
   </div>
   <div class="right-side montserrat-signup">
     <h2>Sign up</h2>
-    <input type="text" class="input-field" placeholder="Nama">
-    <input type="email" class="input-field" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Masukkan alamat email yang valid">
-    <input type="date" class="input-field" placeholder="Tanggal Lahir">
-    <input type="tel" class="input-field" placeholder="No Hp" pattern="[0-9]{10,12}" title="Masukkan nomor telepon yang valid">
-    <input type="text" class="input-field" placeholder="Alamat Domisili">
-    <div class="password-container">
-      <input type="password" class="input-field" placeholder="Password">
-      <span class="show-password">&#128065;</span>
-    </div>
-    <div class="password-container">
-      <input type="password" class="input-field" placeholder="Confirm Password">
-      <span class="show-password">&#128065;</span>
-    </div>
-    <button class="button">Sign Up</button>
+    <form action="./php/signup.php" method="post">
+      <input type="text" class="input-field" placeholder="Nama" id="nama">
+      <input type="email" class="input-field" placeholder="Email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Masukkan alamat email yang valid">
+      <input type="date" class="input-field" placeholder="Tanggal Lahir" id="dob">
+      <input type="tel" class="input-field" placeholder="No Hp" id="no_handphone" pattern="[0-9]{10,12}" title="Masukkan nomor telepon yang valid">
+      <input type="text" class="input-field" placeholder="Alamat Domisili" id="address">
+      <div class="password-container">
+        <input  type="password" class="input-field" placeholder="Password">
+        <span class="show-password">&#128065;</span>
+      </div>
+      <div class="password-container">
+        <input id="password" type="password" class="input-field" placeholder="Confirm Password">
+        <span class="show-password">&#128065;</span>
+      </div>
+      <button class="button" type="submit">Sign Up</button>
+      
+    </form>
+   
     <div class="sign-in-container">
-      <p>Sudah Mempunyai Akun? <a href="#" class="sign-in">Sign in</a></p>
+      <p>Sudah Mempunyai Akun? <a href="./login.html" class="sign-in">Sign in</a></p>
     </div>
   </div>
 </div>

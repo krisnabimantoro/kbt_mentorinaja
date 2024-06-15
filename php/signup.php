@@ -1,43 +1,46 @@
 <?php
 session_start();
-require 'connection.php';
+include('connection.php');
+
 $name = $_POST['name'];
+$dob = $_POST['dob'];
 $email = $_POST['email'];
+$address = $_POST['address'];
+$phone = $_POST['phone'];
 $password = $_POST['password'];
 
-$sql_check = 'SELECT COUNT(*) AS COUNT FROM tb_user WHERE email = :email';
-$stid_check = oci_parse($conn, $sql_check);
-oci_bind_by_name($stid_check, ':email', $email);
-oci_execute($stid_check);
-$row = oci_fetch_assoc($stid_check);
 
-if ($row['COUNT'] > 0) {
-    echo "Email sudah terdaftar!";
-} else {
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+ 
+$sql ="insert into from tb_user (name, date_of_birth, email, address, regis_date, no_handphone,password) VALUES (:name,:dob, :email, :address, NOW(), :no_handphone, :password
+";
 
-    $sql_insert = 'INSERT INTO tb_user (name, date_of_birth,email,address,regis_date,TB_ROLE_ID_ROLE,no_handphone, password) VALUES (:name, :date_of_birth,:email,:address,:regis_date,:TB_ROLE_ID_ROLE,:no_handphone, password)';  
-    $stid_insert = oci_parse($conn, $sql_insert);
-    oci_bind_by_name($stid_insert, ':name', $name);
-    oci_bind_by_name($stid_insert, ':date_of_birth', $date_of_birth);
-    oci_bind_by_name($stid_insert, ':email', $email);
-    oci_bind_by_name($stid_insert, ':address', $address);
-    oci_bind_by_name($stid_insert, ':regis_date', $regis_date);
-    oci_bind_by_name($stid_insert, ':TB_ROLE_ID_ROLE', $TB_ROLE_ID_ROLE);
-    oci_bind_by_name($stid_insert, ':no_handphone', $no_handphone);
-    oci_bind_by_name($stid_insert, ':password', $hashed_password);
+$stmt = $db->prepare($sql);
+$params = array(
+    ":name" => $name,
+    ":dob" => $username,
+    ":email" => $password,
+    ":address" => $email,
+    ":no_handphone" => $phone,
+    ":password" => $password
+);
+$saved = $stmt->execute($params);
 
-    $result = oci_execute($stid_insert);
+if($saved) header("Location: login.php");
 
-    if ($result) {
-        echo "Pendaftaran berhasil! Anda dapat login sekarang.";
-    } else {
-        echo "Pendaftaran gagal! Silakan coba lagi.";
-    }
+// $result = mysqli_query($conn, $sql);
+// $row = mysqli_num_rows($result);
 
-    oci_free_statement($stid_insert);
-}
+// if ($row>0) {
+//     header("Location: https://mentorinaja.my.id/wordpress/home-search/");
+    
+// }else {
+//     // Login failed, show alert
+//     echo "<script>alert('Password salah'); window.location.href='../login.html';</script>";
+// }
 
-oci_free_statement($stid_check);
-oci_close($conn);
+// echo $row;
+
+
+$conn->close();
 ?>
