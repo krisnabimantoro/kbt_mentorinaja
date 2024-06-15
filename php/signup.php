@@ -9,38 +9,25 @@ $address = $_POST['address'];
 $phone = $_POST['phone'];
 $password = $_POST['password'];
 
-
+// Hash the password for security
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
- 
-$sql ="insert into from tb_user (name, date_of_birth, email, address, regis_date, no_handphone,password) VALUES (:name,:dob, :email, :address, NOW(), :no_handphone, :password
-";
 
-$stmt = $db->prepare($sql);
-$params = array(
-    ":name" => $name,
-    ":dob" => $username,
-    ":email" => $password,
-    ":address" => $email,
-    ":no_handphone" => $phone,
-    ":password" => $password
-);
-$saved = $stmt->execute($params);
+// Assuming default role is 1 for regular users
+$id_role = 1;
 
-if($saved) header("Location: login.php");
+// Insert user data into tb_user table
+$stmt = $conn->prepare("INSERT INTO tb_user (name, date_of_birth, email, address, regis_date, id_role, no_handphone) VALUES (?, ?, ?, ?, NOW(), ?, ?)");
+$stmt->bind_param("ssssis", $name, $dob, $email, $address, $id_role, $phone);
 
-// $result = mysqli_query($conn, $sql);
-// $row = mysqli_num_rows($result);
+if ($stmt->execute()) {
+    // Registration successful, redirect to login page
+    header("Location: login.html");
+    exit();
+} else {
+    // Registration failed, handle accordingly
+    echo "Error: " . $stmt->error;
+}
 
-// if ($row>0) {
-//     header("Location: https://mentorinaja.my.id/wordpress/home-search/");
-    
-// }else {
-//     // Login failed, show alert
-//     echo "<script>alert('Password salah'); window.location.href='../login.html';</script>";
-// }
-
-// echo $row;
-
-
+$stmt->close();
 $conn->close();
 ?>
