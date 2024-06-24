@@ -14,11 +14,10 @@ $id_role = $_POST['role'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Assuming default role is 1 for regular users
-$id_role = 1;
 
 // Insert user data into tb_user table
 $stmt = $conn->prepare("INSERT INTO tb_user (name, date_of_birth, email, address, regis_date, id_role, no_handphone, password) VALUES (?, ?, ?, ?, NOW(), ?, ?, ?)");
-$stmt->bind_param("ssssiss", $name, $dob, $email, $address, $id_role, $phone, $password);
+$stmt->bind_param("ssssiss", $name, $dob, $email, $address, $id_role, $phone, $hashed_password );
 
 
 if ($stmt->execute()) {
