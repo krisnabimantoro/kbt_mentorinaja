@@ -1,15 +1,11 @@
 <?php
 session_start();
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
-
 require '../php/connection.php';
 
-// Fetch mentorship data
-$sql = 'SELECT * FROM tb_mentorship ';
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-// $stid = oci_parse($conn, $sql);
-// oci_execute($stid);
+$sql = 'SELECT * FROM mentorship';
+$result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -27,28 +23,28 @@ $stmt->execute();
 
   <nav class="navbar">
     <div class="navbar-left">
-      <img src="../icon/logo.png" alt="Logo" class="logo">
+      <a href="../pages/searching.php">
+        <img src="../icon/logo.png" alt="Logo" class="logo">
+
+      </a>
     </div>
     <div class="navbar-center">
       <ul class="menu">
-        <?php if ($role == '1'): ?>
-          <li><a href="#">Akun Mentor</a></li>
+        <?php if ($role == '2'): ?>
+          <li><a href="./editmentor.html">Kelola Mentor</a></li>
           <li><a href="./tambahmentor.html">Tambah Mentor</a></li>
-          <li><a href="#">Pesanan</a></li>
-        <?php elseif ($role == '2'): ?>
-          <li><a href="#">Pemesanan</a></li>
-        <?php else: ?>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+     
+          <li><a href="./history.php">Pesanan</a></li>
+          <?php elseif ($role == '1'): ?>
+            <li><a href="./history.php">Pesanan</a></li>
+        
         <?php endif; ?>
       </ul>
     </div>
     <div class="navbar-right">
       <a href="./profile.php">
 
-        <img src="../img/Profile.png" alt="Profile" class="profile-pic" >
+        <img src="../img/profile.png" alt="Profile" class="profile-pic" >
       </a>
     </div>
   </nav>
@@ -85,61 +81,26 @@ $stmt->execute();
       <h2>Mentorship</h2>
       <div class="mentorship-cards">
       <div class="cards-container">
-    <?php while ($row = oci_fetch_assoc($stid)): ?>
-      <div class="card">
-      <img class="gambar" src="../uploads/<?php echo htmlspecialchars($row['IMG']); ?>" alt="Mentorship Image" />
-        <h3><?php echo htmlspecialchars($row['SPECIALIZATION']); ?></h3>
-        <p><?php echo htmlspecialchars($row['DESCRIPTION']); ?></p>
-        <div class="details">
-          <p class="price">Rp. <?php echo number_format($row['PRICE'], 0, ',', '.'); ?></p>
-          <p class="rating"><?php echo htmlspecialchars($row['RATE']); ?></p>
+        
+    <?php while ($row = $result->fetch_assoc()):
+    
+  if ($row['AVAILABILITY'] === 'Yes'):?>
+      <div class="card" onclick="location.href='MentorshipDetail.php?id=<?php echo htmlspecialchars($row['ID_MENTORSHIP']); ?>'">
+            <img class="gambar" src="../upload/mentor/<?php echo htmlspecialchars($row['IMG']); ?>" alt="Mentorship Image" />
+            <h3><?php echo htmlspecialchars($row['SPECIALIZATION']); ?></h3>
+            <p><?php echo htmlspecialchars($row['DESCRIPTION']); ?></p>
+            <div class="details">
+                <p class="price">Rp. <?php echo number_format($row['PRICE'], 0, ',', '.'); ?></p>
+                <p class="rating"><?php echo htmlspecialchars($row['RATE']); ?></p>
+            </div>
         </div>
-      </div>
-    <?php endwhile; ?>
-    <?php
-    oci_free_statement($stid);
-    oci_close($conn);
-    ?>
-  </div>
+<?php
+    endif;
+endwhile;
 
+$result->free();
+$conn->close();
+?>
 
-        <div class="card">
-          <img src="../img/Science.png" alt="Science" />
-          <h3>Muhammad Arif Irfan</h3>
-          <p>Salam! Saya Muhammad Arif Irfan, siap membantu Anda mencapai potensi terbaik...</p>
-          <div class="details">
-            <p class="price">Rp. 20.000</p>
-            <p class="rating">4.9</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="../img/Math.png" alt="Geography" />
-          <h3>Rofiq Samahudi</h3>
-          <p>Assalamualaikum Wr. Wb. Mari belajar bersama menuju kehidupan...</p>
-          <div class="details">
-            <p class="price">Rp. 20.000</p>
-            <p class="rating">Rate</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="../img/Science.png" alt="Math" />
-          <h3>Ridwan Kamil</h3>
-          <p>Tingkatkan keterampilan dalam menguasai ilmu dunia. Matematika hadir memberikan...</p>
-          <div class="details">
-            <p class="price">Rp. 20.000</p>
-            <p class="rating">Rate</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="../img/Science.png" alt="Tambahan" />
-          <h3>Example</h3>
-          <p>Contoh</p>
-          <div class="details">
-            <p class="price">Rp.</p>
-            <p class="rating">Rate</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

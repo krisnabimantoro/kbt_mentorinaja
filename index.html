@@ -10,15 +10,14 @@
     <link rel="stylesheet" href="./styles/landingpage.css" />
     <link rel="stylesheet" href="./styles/locationpage.css" />
     <link rel="stylesheet" href="./styles/bidangpage.css" />
-
-   
+    <!-- <link rel="stylesheet" href="../styles/about.css"> -->
   </head>
   <body>
     <!-- NAVBAR -->
     <nav>
       <div class="navbar">
         <div class="logo">
-          <img src="icon/logo.png" alt="Logo" />
+          <img src="./icon/logo.png" alt="Logo" />
           <span class="brand-name">MentorInAja</span>
         </div>
         <div class="menu">
@@ -34,20 +33,17 @@
       <div class="search-box-container">
         <input type="text" class="search-box" placeholder="Mau Belajar Apa ?" />
         <button class="search-button">
-          <img src="icon/search.png" alt="Cari" />
+          <img src="./icon/search.png" alt="Cari" />
         </button>
       </div>
-      <div class="filter-bar">
-        <div class="filter-box"><a href="">Bidang 1</a></div>
-        <div class="filter-box"><a href="">Bidang 2</a></div>
-        <div class="filter-box"><a href="">Bidang 3</a></div>
-      </div>
+     
     </div>
 
-    <!-- ILLUSTRASI -->
     <div class="ilustrasi">
-      <img src="icon/ilustrasi.png" alt="Ilustrasi" />
+      <img src="./icon/ilustrasi.png" alt="Ilustrasi" />
     </div>
+
+    <div class="pembatas"></div>
 
     <!-- LOCATION PAGE CONTENT -->
     <!DOCTYPE html>
@@ -62,15 +58,12 @@
         <link rel="stylesheet" href="./styles/locationpage.css" />
       </head>
       <body>
-        <!--  -->
-        <div class="pembatas"></div>
-        <!--  -->
         <div class="lokasi-container">
           <h1 class="sub-heading">Temukan Gaya Belajarmu</h1>
           <div class="box-container">
             <div class="box">
               <div class="inner-box">
-                <img src="locationpage\ilustrasi1.png" alt="Online" />
+                <img src="./locationpage/ilustrasi1.png" alt="Online" />
               </div>
               <h2 class="box-title">Online</h2>
               <p class="box-description">
@@ -80,7 +73,7 @@
             </div>
             <div class="box">
               <div class="inner-box">
-                <img src="locationpage\ilustrasi2.png" alt="Offline" />
+                <img src="./locationpage/ilustrasi2.png" alt="Offline" />
               </div>
               <h2 class="box-title">Offline</h2>
               <p class="box-description">
@@ -92,21 +85,23 @@
         </div>
       </body>
     </html>
-    <div class="pembatas"></div>
+
+    <div class="batas"></div>
+
     <!-- BIDANG PAGE CONTENT -->
     <div class="lokasi-container">
       <h2 class="sub-heading">Temukan Gaya Belajarmu</h2>
       <div class="box-container">
         <div class="box" data-target="content1">
           <div class="inner-box">
-            <img src="locationpage\MATEMATIKA.png" alt="Matematika" />
+            <img src="./locationpage/MATEMATIKA.png" alt="Matematika" />
           </div>
           <h3 class="box-title">Matematika</h3>
           <p class="box-description">Temukan Keajaiban angka dan rumus dalam pembelajaran matematika yang menyenangkan.</p>
         </div>
         <div class="box" data-target="content2">
           <div class="inner-box">
-            <img src="locationpage\IPA.png" alt="IPA" />
+            <img src="./locationpage/IPA.png" alt="IPA" />
           </div>
           <h3 class="box-title">IPA</h3>
           <p class="box-description">
@@ -115,57 +110,70 @@
         </div>
         <div class="box" data-target="content3">
           <div class="inner-box">
-            <img src="locationpage\IPS.png" alt="IPS" />
+            <img src="./locationpage/IPS.png" alt="IPS" />
           </div>
           <h3 class="box-title">IPS</h3>
           <p class="box-description">
             Jelajahi kisah-kisah menarik tentang masyarakat, budaya, dan sejarah melalui program pembelajaran Ilmu Pengetahuan Sosial.
           </p>
         </div>
-        <div class="box" data-target="content4">
-          <div class="inner-box">
-            <img src="icon/more.jpg" alt="See more" />
+
+        <div class="popup-content" id="content1">
+          <div class="popup-inner">
+            <h2 class="popup-title">Matematika</h2>
+            <p class="popup-description">Temukan Keajaiban angka dan rumus dalam pembelajaran matematika yang menyenangkan.</p>
+            <button class="close-btn">Close</button>
           </div>
-          <span class="see-more-text">See More</span>
-          <span class="arrow-icon">➔</span>
         </div>
-      </div>
-    </div>
 
-    <!-- CONTENT POP-UP -->
-    <div class="popup-content" id="content1">
-      <div class="popup-inner">
-        <h2 class="popup-title">Matematika</h2>
-        <p class="popup-description">Temukan Keajaiban angka dan rumus dalam pembelajaran matematika yang menyenangkan.</p>
-        <button class="close-btn">Close</button>
-      </div>
-    </div>
+        <div class="popup-content" id="content2">
+          <div class="popup-inner">
+            <h2 class="popup-title">IPA</h2>
+            <p class="popup-description">
+              Telusuri keindahan alam dan ilmu pengetahuan di dalamnya melalui eksperimen yang seru dan diskusi yang interaktif.
+            </p>
+            <button class="close-btn">Close</button>
+          </div>
+        </div>
 
-    <div class="popup-content" id="content2">
-      <div class="popup-inner">
-        <h2 class="popup-title">IPA</h2>
-        <p class="popup-description">
-          Telusuri keindahan alam dan ilmu pengetahuan di dalamnya melalui eksperimen yang seru dan diskusi yang interaktif.
-        </p>
-        <button class="close-btn">Close</button>
-      </div>
-    </div>
+        <div class="popup-content" id="content3">
+          <div class="popup-inner">
+            <h2 class="popup-title">IPS</h2>
+            <p class="popup-description">
+              Jelajahi kisah-kisah menarik tentang masyarakat, budaya, dan sejarah melalui program pembelajaran Ilmu Pengetahuan Sosial.
+            </p>
+            <button class="close-btn">Close</button>
+          </div>
+        </div>
 
-    <div class="popup-content" id="content3">
-      <div class="popup-inner">
-        <h2 class="popup-title">IPS</h2>
-        <p class="popup-description">
-          Jelajahi kisah-kisah menarik tentang masyarakat, budaya, dan sejarah melalui program pembelajaran Ilmu Pengetahuan Sosial.
-        </p>
-        <button class="close-btn">Close</button>
-      </div>
-    </div>
+        <div class="popup-content" id="content4">
+          <div class="popup-inner">
+            <h2 class="popup-title">Lainnya</h2>
+            <p class="popup-description">Lihat lebih banyak lagi program yang tersedia.</p>
+            <button class="close-btn">Close</button>
+          </div>
+        </div>
 
-    <div class="popup-content" id="content4">
-      <div class="popup-inner">
-        <h2 class="popup-title">Lainnya</h2>
-        <p class="popup-description">Lihat lebih banyak lagi program yang tersedia.</p>
-        <button class="close-btn">Close</button>
+        <div class="batasan"></div>
+        <!-- ABOUT PAGE CONTENT -->
+        <!-- <link rel="stylesheet" href="./styles/landingpage.css" /> -->
+        <body>
+          <div class="container-about">
+            <div class="image-container-about">
+              <img src="./Gambar/4617305 1.png" alt="Mentoring Illustration" />
+            </div>
+            <div class="content-about">
+              <h2>Mencari mentor bagi siswa yang MauBelajar</h2>
+              <p>
+                Kami di MentorinAja menyediakan mentorship personal dan terjangkau untuk mengembangkan potensi belajar setiap individu.
+                Dengan teknologi dan keahlian pendidikan, platform kami memungkinkan akses yang mudah untuk belajar sesuai kebutuhan dan
+                gaya belajar masing-masing. Kami yakin setiap pertemuan dengan mentor adalah kesempatan untuk pertumbuhan dan perkembangan.
+                Ayo gabung dengan kami dan temukan pengalaman belajar yang inspiratif dan menyenangkan bersama!
+              </p>
+              <a href="#" class="button-about">Ayo Mulai</a>
+            </div>
+          </div>
+        </body>
       </div>
     </div>
   </body>

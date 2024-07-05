@@ -1,0 +1,233 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ffffff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-left .logo {
+  height: 60px;
+  margin-left: 20px;
+}
+
+.navbar-center .menu {
+  list-style: none;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-center .menu li {
+  margin: 0 15px;
+}
+
+.navbar-center .menu li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-center .menu li a:hover {
+  text-decoration: underline;
+}
+
+.navbar-right .profile-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 203px;
+  background: #3369ea;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mentor-info {
+  color: #ffffff;
+  flex-grow: 1;
+}
+
+.mentor-info h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.location .icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.location p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.mentorship {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.main-content {
+  background: #ccd9f9;
+  padding: 50px 20px;
+  text-align: left;
+  position: relative;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #394559;
+  margin-top: 0;
+}
+
+.subject-image {
+  margin: 20px 0;
+  border-radius: 32px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.subject-image img {
+  width: 100%;
+  max-width: 323px;
+  height: auto;
+  object-fit: cover;
+}
+
+.description {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #000000;
+  max-width: 563px;
+  margin-top: 10px;
+  margin-bottom: -30px;
+}
+
+/* Mentorship Detail */
+.mentorship-detail {
+  background: #ccd9f9;
+  padding: 20px;
+}
+
+.ketersediaan-group,
+.lokasi-group,
+.metode-belajar-group {
+  margin-bottom: 10px;
+}
+
+.ketersediaan,
+.lokasi,
+.metode-belajar {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+}
+
+.tersedia,
+.offline,
+.alamat {
+  font-weight: 300;
+  font-size: 16px;
+  color: #000000;
+  margin-top: 5px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-button,
+.whatsapp-button {
+  width: 145px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-grup {
+  display: flex;
+  gap: 1100px;
+  flex: wrap;
+}
+
+.price-button {
+  background: #3369ea;
+}
+
+.price-button:hover {
+  background: #2554c7;
+}
+
+.whatsapp-button {
+  background: #25d366;
+}
+
+.whatsapp-button:hover {
+  background: #1da853;
+}

@@ -4,9 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.batas{
+    /* margin:650px; */
+    margin-top: 400px;
+}
 body {
-    font-family: 'Tahoma', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: #FFFF;
 }
 
@@ -66,7 +69,6 @@ body {
 .sub-heading {
     font-size: 24px;
     color: #394559;
-    margin-bottom: 20px;
 }
 
 .box-container {
@@ -76,7 +78,7 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin-top: 20px;
+  
 }
 
 .box {

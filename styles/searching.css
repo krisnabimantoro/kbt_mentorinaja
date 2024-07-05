@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  zin
 }
 
 .card {
@@ -237,6 +238,8 @@ body {
   font-weight: 700;
   color: white;
 }
+
+
 
 .card .rating {
   font-weight: 400;

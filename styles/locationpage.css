@@ -1,11 +1,11 @@
 * {
-    font-family: Tahoma;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
     background-color: #FFFF;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .logo {
@@ -53,14 +53,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100px;
     text-align: center;
 }
 
 .sub-heading {
     font-size: 24px;
     color: #394559;
-    margin-bottom: 70px;
+   
 }
 
 .box-container {
@@ -71,6 +71,7 @@ body {
 }
 
 .box {
+    margin-top: 40px;
     width: 475px;
     height: 458px;
     border-radius: 36px;

@@ -1,0 +1,72 @@
+.batasan{
+  /* margin:650px; */
+  margin: 650px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.container-about {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  margin: 20px;
+}
+
+.image-container-about {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Geser gambar ke kanan */
+  align-items: center;
+}
+
+.image-container-about img {
+  width: 100%; /* Gambar mengisi lebar container */
+  max-width: 500px; /* Batasi lebar maksimum gambar */
+  height: auto; /* Biarkan tinggi gambar mengikuti proporsi */
+}
+
+.content-about {
+  flex: 1;
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  align-items: start;
+  justify-content: flex-start;
+}
+
+.content-about h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: left;
+  
+}
+
+.content-about p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.button-about {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #3369ea;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-about:hover {
+  background-color: #3369ea;
+}

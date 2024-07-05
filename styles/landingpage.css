@@ -1,15 +1,83 @@
 * {
-  font-family: Tahoma;
+  font-family: "Montserrat", sans-serif;
 }
 
 .pembatas{
-    margin:450px;
+    /* margin:650px; */
+    margin-top: 650px;
+}
+
+.batasan{
+  /* margin:650px; */
+  margin-top: 750px;
 }
 
 body {
   background-color: #ffff;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.container-about {
+  
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  margin: 100px;
+}
+
+.image-container-about {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Geser gambar ke kanan */
+  align-items: center;
+}
+
+.image-container-about img {
+  width: 100%; /* Gambar mengisi lebar container */
+  max-width: 500px; /* Batasi lebar maksimum gambar */
+  height: auto; /* Biarkan tinggi gambar mengikuti proporsi */
+}
+
+.content-about {
+  flex: 1;
+  padding: 0 20px;
+flex-wrap: wrap;
+align-items: start;
+justify-content: left;
+  justify-content: flex-start; /* Geser gambar ke kanan */
+  /* align-items: center; */
+}
+
+.content-about h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.content-about p {
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.button-about {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #3369ea;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  justify-content: start;
+}
+
+.button-about:hover {
+  background-color: #3369ea;
 }
 
 .navbar {
@@ -74,12 +142,12 @@ body {
 
 .search-box-container {
   position: relative;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .search-box {
-  width: 407px;
-  height: 34px;
+  width: 530px;
+  height: 50px;
   border: 2px solid #3369ea;
   padding: 5px 10px;
   font-size: 16px;
@@ -94,16 +162,30 @@ body {
   width: 407px;
 }
 
+.filter-bar {
+  display: flex;
+  margin-top: 25px;
+  width: 100%;
+  padding: 10 50px;
+}
+
 .filter-box {
   flex: 1;
   text-align: center;
   padding: 10px;
-  margin: 0 5px;
+  margin: 0 10px;
   background-color: #3369ea;
   border-radius: 500px;
   font-size: 16px;
   cursor: pointer;
 }
+
+.filter-box a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
 
 .search-button {
   position: absolute;

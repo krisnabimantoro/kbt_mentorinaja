@@ -1,43 +1,42 @@
 <?php
 session_start();
-require 'connection.php';  // Ensure this file correctly sets up the MySQLi connection and stores it in $conn
+include('connection.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    if (empty($email) || empty($password)) {
-        echo "Email and Password are required!";
+// Prepare and execute the query to fetch user data by email
+$stmt = $conn->prepare("SELECT id_user, password, name, tb_role_id_role FROM user WHERE email = ?");
+
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
+
+// Check if a user with the provided email exists
+if ($stmt->num_rows > 0) {
+    $stmt->bind_result($id_user, $hashed_password, $name,$role);
+    $stmt->fetch();
+    
+    // Verify the password
+    if (password_verify($password, $hashed_password)) {
+        // Password is correct, set session variables
+        $_SESSION['id_user'] = $id_user;
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
+
+        // Redirect to a protected page or dashboard
+        echo "<script>alert('Login Successful'); window.location.href='../pages/searching.php';</script>";
+        exit();
     } else {
-        // Prepare the SQL statement to fetch the user data by email
-        $sql = 'SELECT * FROM tb_user WHERE email = ?';
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        // Fetch the user data
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-
-            // Verify the password
-            if (password_verify($password, $user['password'])) {
-                // Start the session and redirect to the searching page
-                $_SESSION['user_id'] = $user['ID_USER'];
-                $_SESSION['email'] = $user['EMAIL'];
-                $_SESSION['role'] = $user['id_role'];
-                header("Location: ../pages/searching.php");
-                exit();
-            } else {
-                echo "<script>alert('Password salah'); window.location.href='../pages/login.html';</script>";
-            }
-        } else {
-            echo "<script>alert('Email tidak ditemukan'); window.location.href='../pages/login.html';</script>";
-        }
-
-        $stmt->close();
+        // Invalid password
+        echo "<script>alert('Invalid Email or Password'); window.location.href='../pages/login.html';</script>";
     }
+} else {
+    // No user found with the provided email
+    echo "<script>alert('Invalid Email or Password'); window.location.href='../pages/login.html';</script>";
 }
 
+$stmt->close();
 $conn->close();
 ?>
